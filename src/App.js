@@ -5,13 +5,14 @@ import {ethers} from "ethers"
 export default function App() {
 
   const checkIfWalletIsConnect = () => {
-  const {ethereum} = window
+    const {ethereum} = window
 
-  if(!ethereum){
-    console.log("Make sure you have Metamask!")
-    return
-  } else  {
-    console.log("We have the ethereum object", ethereum)
+    if(!ethereum){
+      console.log("Make sure you have Metamask!")
+      return
+    } else  {
+      console.log("We have the ethereum object", ethereum)
+    }
   }
 
   const wave = () => {
