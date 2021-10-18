@@ -1,10 +1,9 @@
-import * as React from "react";
+import React, {useEffect, useCallback} from "react" 
 import './App.css';
-import {ethers} from "ethers"
 
 export default function App() {
 
-  const checkIfWalletIsConnect = () => {
+  const checkIfWalletIsConnect = useCallback(() => {
     const {ethereum} = window
 
     if(!ethereum){
@@ -13,10 +12,11 @@ export default function App() {
     } else  {
       console.log("We have the ethereum object", ethereum)
     }
-  }
+  }, [])
 
-  const wave = () => {
-  }
+  useEffect(() => {
+    checkIfWalletIsConnect()
+  },[checkIfWalletIsConnect])
   
   return (
     <div className="mainContainer">
@@ -30,7 +30,7 @@ export default function App() {
         I am Arnaud from France and I'm currently learning some cool stuff around web3! Connect your Ethereum wallet and wave at me!
         </div>
 
-        <button className="waveButton" onClick={wave}>
+        <button className="waveButton">
           Wave at Me
         </button>
       </div>
